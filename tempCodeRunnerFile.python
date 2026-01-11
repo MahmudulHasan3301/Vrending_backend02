@@ -1,0 +1,29 @@
+# PascalCase for Class
+class InventoryManager:
+    def __init__(self, branch_name):
+        # snake_case for variable
+        self.branch_name = branch_name
+        self.item_count = 0
+
+    # camelCase for function
+    def updateStock(self, arrival_amount):
+        # snake_case for variable
+        new_total = self.item_count + arrival_amount
+        self.item_count = new_total
+        return self.item_count
+
+# snake_case for variables
+initial_arrival = 50
+branch_location = "North Warehouse"
+
+# kebab-case for object (represented via dictionary key)
+# Note: standard identifiers like `warehouse-manager = ...` would cause a SyntaxError.
+registry = {
+    "warehouse-manager": InventoryManager(branch_location)
+}
+
+# Accessing the "kebab-case" object and its camelCase function
+current_stock = registry["warehouse-manager"].updateStock(initial_arrival)
+
+print(f"Branch: {registry['warehouse-manager'].branch_name}")
+print(f"Current Stock: {current_stock}")
